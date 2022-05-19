@@ -23,11 +23,11 @@ defmodule AppUsingLiveTagWeb.LiveViewPrac do
   end
   def handle_event("for_increment", _params, socket) do
     {:noreply, socket
-    |> update(:count, &(&1+1))}
+    |> update(:count, &min(100, &1+10))}
   end
   def handle_event("for_decrement", _params, socket) do
     {:noreply, socket
-    |> update(:count, &max(0, &1-1))}
+    |> update(:count, &max(0, &1-10))}
   end
   def handle_event("for_clear", _params, socket) do
     {:noreply, socket
